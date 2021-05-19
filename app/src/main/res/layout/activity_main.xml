@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/background"
     android:layout_gravity="center"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -11,7 +12,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_marginTop="200dp"
-        android:layout_marginLeft="8dp"
+        app:cardCornerRadius="60dp"
         android:layout_gravity="center"
         android:layout_height="wrap_content">
 
@@ -33,6 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#3CA4F6"
+                android:padding="10dp"
                 android:layout_marginTop="20dp"
                 android:text="Enter Email Id:"
                 android:textSize="18sp"
@@ -41,6 +43,7 @@
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
+                android:padding="10dp"
                 android:layout_height="wrap_content"
                 android:textColor="#3CA4F6"
                 android:textSize="20sp" />
@@ -50,6 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#3CA4F6"
+                android:padding="10dp"
                 android:text="Enter Password:"
                 android:textSize="18sp"
                 android:gravity="left"
@@ -57,6 +61,7 @@
 
             <EditText
                 android:id="@+id/password"
+                android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#3CA4F6"
@@ -68,6 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:padding="10dp"
                 android:gravity="right"
                 android:textColor="#3CA4F6"
                 android:text="Forgot Password" />

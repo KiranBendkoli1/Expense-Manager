@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:gravity="center"
+    android:background="@drawable/background"
     android:layout_gravity="center"
     android:layout_height="match_parent"
     tools:context=".RegistrationActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-
-        android:layout_marginLeft="8dp"
         android:layout_gravity="center"
+        app:cardCornerRadius="60dp"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -26,6 +26,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="Registration"
+                android:padding="20dp"
                 android:textColor="#3CA4F6"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -34,6 +35,8 @@
                 android:layout_height="wrap_content"
                 android:textColor="#3CA4F6"
                 android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
                 android:text="Enter Email Id:"
                 android:textSize="18sp"
                 android:gravity="left"
@@ -41,6 +44,7 @@
             <EditText
                 android:id="@+id/email_reg"
                 android:layout_width="match_parent"
+                android:padding="10dp"
                 android:layout_height="wrap_content"
                 android:textColor="#3CA4F6"
                 android:textSize="20sp" />
@@ -49,6 +53,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:textColor="#3CA4F6"
                 android:text="Enter Password:"
                 android:textSize="18sp"
@@ -60,6 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#3CA4F6"
+                android:padding="10dp"
                 android:inputType="textPassword"
                 android:textSize="20sp" />
 
@@ -69,6 +75,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:padding="10dp"
                 style="@style/Platform.MaterialComponents.Light"
                 android:text="Register" />
 
