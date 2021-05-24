@@ -33,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
         signupHere = findViewById(R.id.signUpHere);
         firebaseAuth = FirebaseAuth.getInstance();
 
+        if(firebaseAuth.getCurrentUser() != null){
+            startActivity(new Intent(getApplicationContext(),Home.class));
+        }
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

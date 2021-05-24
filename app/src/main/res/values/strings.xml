@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Expense Manager</string>
+    <string name="registration">Registration</string>
+    <string name="enter_email_id">Enter Email Id:</string>
+    <string name="enter_password">Enter Password:</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account_click_to_sign_in">Already have an account? click to sign in</string>
 </resources>
