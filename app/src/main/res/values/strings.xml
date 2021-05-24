@@ -5,4 +5,6 @@
     <string name="enter_password">Enter Password:</string>
     <string name="register">Register</string>
     <string name="already_have_an_account_click_to_sign_in">Already have an account? click to sign in</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
