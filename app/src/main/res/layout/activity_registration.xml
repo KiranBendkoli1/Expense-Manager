@@ -3,17 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:gravity="center"
-    android:background="@drawable/background"
-    android:layout_gravity="center"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/background"
     tools:context=".RegistrationActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_gravity="center"
-        app:cardCornerRadius="60dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        app:cardCornerRadius="60dp">
 
         <LinearLayout
             android:layout_width="387dp"
@@ -25,58 +24,58 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@string/registration"
                 android:padding="20dp"
+                android:text="@string/registration"
                 android:textColor="#3CA4F6"
                 android:textSize="30sp"
                 android:textStyle="bold" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#3CA4F6"
                 android:layout_marginTop="20dp"
+                android:gravity="left"
                 android:padding="10dp"
+                android:paddingStart="20dp"
                 android:paddingLeft="20dp"
                 android:text="@string/enter_email_id"
-                android:textSize="18sp"
-                android:gravity="left"
-                android:paddingStart="20dp" />
+                android:textColor="#3CA4F6"
+                android:textSize="18sp" />
             <EditText
                 android:id="@+id/email_reg"
                 android:layout_width="match_parent"
-                android:padding="10dp"
                 android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:textColor="#3CA4F6"
                 android:textSize="20sp" />
 
             <TextView
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textColor="#3CA4F6"
-                android:text="@string/enter_password"
-                android:textSize="18sp"
+                android:layout_marginTop="20dp"
                 android:gravity="left"
+                android:padding="10dp"
+                android:text="@string/enter_password"
+                android:textColor="#3CA4F6"
+                android:textSize="18sp"
                 />
 
             <EditText
                 android:id="@+id/password_reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#3CA4F6"
-                android:padding="10dp"
                 android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="#3CA4F6"
                 android:textSize="20sp" />
 
             <Button
                 android:id="@+id/register"
+                style="@style/Platform.MaterialComponents.Light"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="50dp"
                 android:padding="10dp"
-                style="@style/Platform.MaterialComponents.Light"
                 android:text="@string/register" />
 
             <TextView
@@ -84,10 +83,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="@string/already_have_an_account_click_to_sign_in"
                 android:textColor="#3CA4F6"
                 android:textSize="18sp"
-                android:text="@string/already_have_an_account_click_to_sign_in"
-                android:gravity="center"
                 />
 
 

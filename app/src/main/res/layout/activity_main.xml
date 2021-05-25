@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background"
-    android:layout_gravity="center"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/background"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_marginTop="200dp"
-        app:cardCornerRadius="60dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="100dp"
+        app:cardCornerRadius="60dp">
 
         <LinearLayout
             android:layout_width="387dp"
@@ -33,39 +33,39 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#3CA4F6"
-                android:padding="10dp"
                 android:layout_marginTop="20dp"
-                android:text="Enter Email Id:"
-                android:textSize="18sp"
                 android:gravity="left"
+                android:padding="10dp"
+                android:text="Enter Email Id:"
+                android:textColor="#3CA4F6"
+                android:textSize="18sp"
                 />
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
-                android:padding="10dp"
                 android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:textColor="#3CA4F6"
                 android:textSize="20sp" />
 
             <TextView
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#3CA4F6"
+                android:layout_marginTop="20dp"
+                android:gravity="left"
                 android:padding="10dp"
                 android:text="Enter Password:"
+                android:textColor="#3CA4F6"
                 android:textSize="18sp"
-                android:gravity="left"
                 />
 
             <EditText
                 android:id="@+id/password"
-                android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#3CA4F6"
                 android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="#3CA4F6"
                 android:textSize="20sp" />
 
             <TextView
@@ -73,19 +73,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:padding="10dp"
                 android:gravity="right"
-                android:textColor="#3CA4F6"
-                android:text="Forgot Password" />
+                android:padding="10dp"
+                android:text="Forgot Password"
+                android:textColor="#3CA4F6" />
 
 
             <Button
                 android:id="@+id/login"
+                style="@style/Platform.MaterialComponents.Light"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                style="@style/Platform.MaterialComponents.Light"
+                android:layout_marginTop="50dp"
                 android:text="Log in " />
 
             <TextView
@@ -93,10 +93,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="Don't have an account? Sign Up"
                 android:textColor="#3CA4F6"
                 android:textSize="18sp"
-                android:text="Don't have an account? Sign Up"
-                android:gravity="center"
                 />
 
 

@@ -19,7 +19,7 @@ public class Home extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         FrameLayout frameLayout = findViewById(R.id.fragment_container);
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeF()).commit();
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull  MenuItem item) {

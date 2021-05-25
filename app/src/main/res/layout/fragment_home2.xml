@@ -5,12 +5,65 @@
     android:layout_height="match_parent"
     tools:context=".HomeF">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:layout_marginTop="100dp"
+        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home"
-        android:textSize="50dp"
-        android:gravity="center"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:id="@+id/addIncome"
+                android:layout_height="35sp"
+                android:background="#00B7FF"
+                android:src="@drawable/add"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_height="match_parent"
+                android:text="Add Income"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="35sp"
+                android:id="@+id/addExpense"
+                android:background="#00B7FF"
+                android:src="@drawable/minus"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="Add Expense"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </FrameLayout>
