@@ -78,6 +78,8 @@ public class AddIncome extends AppCompatActivity {
                 String description = incomeDescription.getText().toString().trim();
                 String amount = String.valueOf(incomeAmount);
 
+
+                // creation of HashMap
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("transaction","Income");
                 hashMap.put("amount",amount);
@@ -86,7 +88,7 @@ public class AddIncome extends AppCompatActivity {
 
 
                 // pushing to database
-                reference.push().setValue(dataObjectIncome).addOnCompleteListener(new OnCompleteListener<Void>() {
+                reference.push().setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
