@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 public class AddIncome extends AppCompatActivity {
 
     Spinner incomeSpinner;
@@ -68,10 +70,19 @@ public class AddIncome extends AppCompatActivity {
                 Float incomeAmount = Float.parseFloat(incomeFigure.getText().toString().trim());
 
                 dataObjectIncome = new DataObjectIncome();
+                dataObjectIncome.setType("Income");
                 dataObjectIncome.setIncomeCategory(category);
                 dataObjectIncome.setIncomeDescription(incomeDescription.getText().toString().trim());
-
                 dataObjectIncome.setIncomeFigure(incomeAmount);
+
+                String description = incomeDescription.getText().toString().trim();
+                String amount = String.valueOf(incomeAmount);
+
+                HashMap<String, String> hashMap = new HashMap<>();
+                hashMap.put("transaction","Income");
+                hashMap.put("amount",amount);
+                hashMap.put("category",category);
+                hashMap.put("description",description);
 
 
                 // pushing to database

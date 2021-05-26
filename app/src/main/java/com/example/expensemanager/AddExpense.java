@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 public class AddExpense extends AppCompatActivity {
 
     Spinner expenseSpinner;
@@ -69,12 +71,24 @@ public class AddExpense extends AppCompatActivity {
                 dataObjectExpense = new DataObjectExpense();
                 dataObjectExpense.setExpenseCategory(category);
                 dataObjectExpense.setExpenseDescription(expenseDescription.getText().toString().trim());
-
                 dataObjectExpense.setExpenseFigure(expenseAmount);
 
 
+                // using alternative method to save data without using class object
+                String description = expenseDescription.getText().toString().trim();
+                String amount = String.valueOf(expenseAmount);
+
+                HashMap<String, String> hashMap = new HashMap<>();
+                hashMap.put("transaction","Expense");
+                hashMap.put("amount",amount);
+                hashMap.put("category",category);
+                hashMap.put("description",description);
+
+
+
+
                 // pushing to database
-                reference.push().setValue(dataObjectExpense).addOnCompleteListener(new OnCompleteListener<Void>() {
+                reference.push().setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){

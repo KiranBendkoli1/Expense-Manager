@@ -1,14 +1,16 @@
 package com.example.expensemanager;
 
 class DataObjectIncome {
-    String type;
+    private String  type;
     private Float incomeFigure;
     private String incomeCategory, incomeDescription;
 
     public DataObjectIncome() {
-        type = "Income";
-    }
 
+    }
+    public void setType(String type){
+        this.type = type ;
+    }
 
     public Float getIncomeFigure() {
         return incomeFigure;
