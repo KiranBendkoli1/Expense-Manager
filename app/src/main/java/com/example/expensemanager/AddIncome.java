@@ -2,6 +2,8 @@ package com.example.expensemanager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
@@ -37,6 +39,11 @@ public class AddIncome extends AppCompatActivity {
         incomeFigure = findViewById(R.id.incomeFigure);
         incomeDescription = findViewById(R.id.incomeDescription);
         saveIncome =  findViewById(R.id.saveIncome);
+
+        // to goto fragment HomeF
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        HomeF homeF = new HomeF();
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         reference = firebaseDatabase.getReference().child("Data");
@@ -99,6 +106,13 @@ public class AddIncome extends AppCompatActivity {
                         }
                     }
                 });
+
+                // transfer of income amount to HomeF
+                Bundle bundle = new Bundle();
+                bundle.putString("amount",amount);
+                bundle.putString("transaction","Income");
+                homeF.setArguments(bundle);
+                transaction.add(R.id.fragment_container,homeF).commit();
 
             }
         });

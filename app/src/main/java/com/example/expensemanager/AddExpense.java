@@ -85,8 +85,6 @@ public class AddExpense extends AppCompatActivity {
                 hashMap.put("description",description);
 
 
-
-
                 // pushing to database
                 reference.push().setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -99,6 +97,8 @@ public class AddExpense extends AppCompatActivity {
                         }
                     }
                 });
+
+
 
             }
         });
