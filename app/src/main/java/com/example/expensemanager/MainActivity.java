@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            finish();
                             Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_SHORT);
                             Intent i = new Intent(getApplicationContext(),Home.class);
                             startActivity(i);

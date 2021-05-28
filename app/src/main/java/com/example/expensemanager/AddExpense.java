@@ -29,7 +29,7 @@ public class AddExpense extends AppCompatActivity {
     DataObjectExpense   dataObjectExpense;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
-    Button saveExpense;
+    Button saveExpense, clearExpense;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class AddExpense extends AppCompatActivity {
         expenseFigure = findViewById(R.id.expenseFigure);
         expenseDescription =findViewById(R.id.expenseDescription);
         saveExpense = findViewById(R.id.saveExpense);
+        clearExpense = findViewById(R.id.clearExpense);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         reference = firebaseDatabase.getReference().child("Data");
@@ -97,11 +98,15 @@ public class AddExpense extends AppCompatActivity {
                         }
                     }
                 });
-
-
-
             }
         });
 
+        clearExpense.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                expenseFigure.setText("");
+                expenseDescription.setText("");
+            }
+        });
     }
 }

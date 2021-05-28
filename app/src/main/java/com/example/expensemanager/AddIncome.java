@@ -27,7 +27,7 @@ public class AddIncome extends AppCompatActivity {
     Spinner incomeSpinner;
     EditText incomeFigure,incomeDescription;
     String category;
-    Button saveIncome;
+    Button saveIncome, clearIncome;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
     DataObjectIncome dataObjectIncome;
@@ -39,7 +39,7 @@ public class AddIncome extends AppCompatActivity {
         incomeFigure = findViewById(R.id.incomeFigure);
         incomeDescription = findViewById(R.id.incomeDescription);
         saveIncome =  findViewById(R.id.saveIncome);
-
+        clearIncome = findViewById(R.id.clearIncome);
         // to goto fragment HomeF
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
@@ -114,6 +114,14 @@ public class AddIncome extends AppCompatActivity {
                 homeF.setArguments(bundle);
                 transaction.add(R.id.fragment_container,homeF).commit();
 
+            }
+        });
+
+        clearIncome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                incomeFigure.setText("");
+                incomeDescription.setText("");
             }
         });
 

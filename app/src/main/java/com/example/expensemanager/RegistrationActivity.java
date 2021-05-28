@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.SingleLineTransformationMethod;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,14 +46,23 @@ public class RegistrationActivity extends AppCompatActivity {
                     email.setError("Email Required");
                     return;
                 }
+                if(!Patterns.EMAIL_ADDRESS.matcher(emailS).matches()){
+                    email.setError("Please enter a valid email");
+                    return;
+                }
                 if(passwordS.isEmpty()){
                     password.setError("Password Required");
+                    return;
+                }
+                if(passwordS.length() <8){
+                    password.setError("Minimum length of password should be 8");
                     return;
                 }
                 firebaseAuth.createUserWithEmailAndPassword(emailS,passwordS).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            finish();
                             Toast.makeText(getApplicationContext(),"Registration Complete",Toast.LENGTH_SHORT);
                             Intent i = new Intent(getApplicationContext(),Home.class);
                             startActivity(i);
