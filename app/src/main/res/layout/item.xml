@@ -2,10 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="130dp"
+    android:layout_height="140dp"
     android:layout_margin="10dp"
     android:padding="10dp"
-
     app:cardCornerRadius="10dp"
     app:cardElevation="8dp"
     >
@@ -28,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textColor="@color/black"
                 android:text="Transaction"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -45,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Amount"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
@@ -54,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="100000"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
@@ -68,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Category"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
@@ -76,6 +79,7 @@
                 android:id="@+id/category_text"
                 android:layout_height="wrap_content"
                 android:text="category"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
@@ -89,6 +93,7 @@
                 android:layout_width="130sp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textColor="@color/black"
                 android:text="Description"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -99,6 +104,34 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="desc"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="130sp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="Date Time"
+                android:textSize="20sp"
+
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/date_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="date"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />

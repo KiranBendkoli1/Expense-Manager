@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,6 +22,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class AddIncome extends AppCompatActivity {
@@ -30,7 +34,12 @@ public class AddIncome extends AppCompatActivity {
     Button saveIncome, clearIncome;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
+    TextView dateTimeDisplay;
+    Calendar calendar;
+    SimpleDateFormat dateFormat;
+    String date;
     DataObjectIncome dataObjectIncome;
+    @SuppressLint("SimpleDateFormat")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +49,12 @@ public class AddIncome extends AppCompatActivity {
         incomeDescription = findViewById(R.id.incomeDescription);
         saveIncome =  findViewById(R.id.saveIncome);
         clearIncome = findViewById(R.id.clearIncome);
+        // get current time
+        dateTimeDisplay =findViewById(R.id.text_date_display);
+        calendar = Calendar.getInstance();
+        dateFormat = new SimpleDateFormat("yyyy.MMMM.dd hh:mm aaa");
+        date = dateFormat.format(calendar.getTime());
+        dateTimeDisplay.setText(date);
         // to goto fragment HomeF
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
@@ -92,7 +107,7 @@ public class AddIncome extends AppCompatActivity {
                 hashMap.put("amount",amount);
                 hashMap.put("category",category);
                 hashMap.put("description",description);
-
+                hashMap.put("datetime",date);
 
                 // pushing to database
                 reference.push().setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {

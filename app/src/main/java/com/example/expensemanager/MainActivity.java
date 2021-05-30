@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         if(firebaseAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            startActivity(new Intent(getApplicationContext(), Home.class));
         }
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             finish();
                             Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_SHORT);
-                            Intent i = new Intent(getApplicationContext(),ProfileActivity.class);
+                            Intent i = new Intent(getApplicationContext(),Home.class);
                             startActivity(i);
                         }
                         else{

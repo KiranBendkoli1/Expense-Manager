@@ -1,9 +1,17 @@
 package com.example.expensemanager;
 
 class Model {
-    String transaction, amount,category, description;
+    String transaction, amount,category, description,datetime;
 
     public Model() {
+    }
+
+    public String getDatetime() {
+        return datetime;
+    }
+
+    public void setDatetime(String datetime) {
+        this.datetime = datetime;
     }
 
     public String getTransaction() {

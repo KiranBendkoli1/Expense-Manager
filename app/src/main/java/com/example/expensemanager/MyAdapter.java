@@ -35,6 +35,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.amount.setText(String.valueOf(model.getAmount()));
         holder.description.setText(model.getDescription());
         holder.category.setText(model.getCategory());
+        holder.datetime.setText(model.getDatetime());
 
     }
 
@@ -45,7 +46,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView transaction, amount,category, description;
+        TextView transaction, amount,category, description,datetime;
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -55,6 +56,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            amount = itemView.findViewById(R.id.amount_text);
            category = itemView.findViewById(R.id.category_text);
            description = itemView.findViewById(R.id.description_text);
+           datetime = itemView.findViewById(R.id.date_time);
 
         }
     }

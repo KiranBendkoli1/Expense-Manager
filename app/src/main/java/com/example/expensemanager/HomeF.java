@@ -26,6 +26,7 @@ public class HomeF extends Fragment {
     TextView incomeHome,expenseHome,balanceHome;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
+    TextView displayComment;
     Float incomeT = 0.0f, expenseT = 0.0f, balanceT =00.f ;
 
     public HomeF() {
@@ -41,12 +42,15 @@ public class HomeF extends Fragment {
         firebaseDatabase = FirebaseDatabase.getInstance();
         reference = firebaseDatabase.getReference().child("Data");
 
+
+
+
         addExpense = view.findViewById(R.id.addExpense);
         addIncome = view.findViewById(R.id.addIncome);
         incomeHome = view.findViewById(R.id.income_home);
         expenseHome = view.findViewById(R.id.expense_home);
         balanceHome = view.findViewById(R.id.balance_home);
-
+        displayComment = view.findViewById(R.id.comment);
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -90,6 +94,9 @@ public class HomeF extends Fragment {
                 startActivity(new Intent(getContext(), AddIncome.class));
             }
         });
+
+
+
 
         return view;
     }

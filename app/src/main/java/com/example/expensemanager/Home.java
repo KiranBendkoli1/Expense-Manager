@@ -33,7 +33,7 @@ public class Home extends AppCompatActivity {
                         break;
                     case R.id.nav_user:
                         selectedFragment = new UserF();
-                        break;
+
                 }
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
