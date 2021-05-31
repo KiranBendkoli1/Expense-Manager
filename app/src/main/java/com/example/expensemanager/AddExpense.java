@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,7 +35,8 @@ public class AddExpense extends AppCompatActivity {
     TextView dateTimeDisplay;
     Calendar calendar;
     SimpleDateFormat dateFormat;
-    String date;
+    String date,email;
+    String identifier;
     DataObjectExpense   dataObjectExpense;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
@@ -58,8 +61,18 @@ public class AddExpense extends AppCompatActivity {
         clearExpense = findViewById(R.id.clearExpense);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        reference = firebaseDatabase.getReference().child("Data");
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        email = user.getEmail();
+        identifier = "";
+        for(char ch : email.toCharArray()){
+            if(ch == '.' || ch =='[' || ch ==']' || ch =='#' || ch=='$' || ch =='@'){
+                continue;
+            }else{
+                identifier += ch;
+            }
+        }
+        reference = firebaseDatabase.getReference().child(identifier);
         expenseSpinner = findViewById(R.id.expenseSpinner);
 
         ArrayAdapter<CharSequence> adapter;

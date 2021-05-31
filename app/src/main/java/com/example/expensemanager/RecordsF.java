@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +28,7 @@ public class RecordsF extends Fragment {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
     MyAdapter adapter;
+    String email,identifier;
     private ArrayList<Model> list;
 
     public RecordsF() {
@@ -40,7 +43,18 @@ public class RecordsF extends Fragment {
         View view = inflater.inflate(R.layout.fragment_records2, container, false);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        reference = firebaseDatabase.getReference().child("Data");
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        email = user.getEmail();
+        identifier = "";
+        for(char ch : email.toCharArray()){
+            if(ch == '.' || ch =='[' || ch ==']' || ch =='#' || ch=='$' || ch =='@'){
+                continue;
+            }else{
+                identifier += ch;
+            }
+        }
+        reference = firebaseDatabase.getReference().child(identifier);
 
         // adapter
         list = new ArrayList<>();

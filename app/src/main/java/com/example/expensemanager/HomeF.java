@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +29,7 @@ public class HomeF extends Fragment {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
     TextView displayComment;
+    String email, identifier;
     Float incomeT = 0.0f, expenseT = 0.0f, balanceT =00.f ;
 
     public HomeF() {
@@ -40,9 +43,17 @@ public class HomeF extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home2, container, false);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        reference = firebaseDatabase.getReference().child("Data");
-
-
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        email = user.getEmail();
+        identifier = "";
+        for(char ch : email.toCharArray()){
+            if(ch == '.' || ch =='[' || ch ==']' || ch =='#' || ch=='$' || ch =='@'){
+                continue;
+            }else{
+                identifier += ch;
+            }
+        }
+        reference = firebaseDatabase.getReference().child(identifier);
 
 
         addExpense = view.findViewById(R.id.addExpense);

@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -39,6 +41,7 @@ public class AddIncome extends AppCompatActivity {
     Calendar calendar;
     SimpleDateFormat dateFormat;
     String date;
+    String email,identifier;
     DataObjectIncome dataObjectIncome;
     @SuppressLint("SimpleDateFormat")
     @Override
@@ -62,7 +65,19 @@ public class AddIncome extends AppCompatActivity {
         HomeF homeF = new HomeF();
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        reference = firebaseDatabase.getReference().child("Data");
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        email = user.getEmail();
+
+        identifier ="";
+        for(char ch : email.toCharArray()){
+            if(ch == '.' || ch =='[' || ch ==']' || ch =='#' || ch=='$' || ch =='@'){
+                continue;
+            }else{
+                identifier += ch;
+            }
+        }
+
+        reference = firebaseDatabase.getReference().child(identifier);
 
         ArrayAdapter<CharSequence> adapter;
         adapter = ArrayAdapter.createFromResource(this, R.array.incomeSpinner, android.R.layout.simple_spinner_item);
@@ -124,12 +139,7 @@ public class AddIncome extends AppCompatActivity {
                     }
                 });
 
-                // transfer of income amount to HomeF
-                Bundle bundle = new Bundle();
-                bundle.putString("amount",amount);
-                bundle.putString("transaction","Income");
-                homeF.setArguments(bundle);
-                transaction.add(R.id.fragment_container,homeF).commit();
+
 
             }
         });
