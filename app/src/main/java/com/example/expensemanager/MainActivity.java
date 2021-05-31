@@ -1,9 +1,15 @@
 package com.example.expensemanager;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +23,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
+    private int INTERNET_PERMISSION_CODE = 1;
+
+
     EditText email,password;
     Button loginBtn;
     TextView forgetPassword, signupHere;
@@ -35,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
         if(firebaseAuth.getCurrentUser() != null){
             startActivity(new Intent(getApplicationContext(), Home.class));
+        }
+        if(ContextCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.INTERNET)== PackageManager.PERMISSION_GRANTED){
+            Toast.makeText(MainActivity.this ,"You have already granted this permission", Toast.LENGTH_SHORT).show();
+        }else{
+            requestStoragePermission();
         }
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -55,12 +70,12 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             finish();
-                            Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_SHORT);
+                            Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(getApplicationContext(),Home.class);
                             startActivity(i);
                         }
                         else{
-                            Toast.makeText(getApplicationContext(),"Login Failed",Toast.LENGTH_SHORT);
+                            Toast.makeText(getApplicationContext(),"Login Failed",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -80,5 +95,39 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    private void requestStoragePermission() {
+        if(ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, Manifest.permission.INTERNET)){
+            new AlertDialog.Builder(this).setTitle("Permission needed")
+                    .setMessage("This permission is needed because of this and that ")
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.INTERNET},INTERNET_PERMISSION_CODE);
+
+                        }
+                    }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            })
+            .create().show();
+        }else{
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET},INTERNET_PERMISSION_CODE);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull  String[] permissions, @NonNull  int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == INTERNET_PERMISSION_CODE){
+            if(grantResults.length > 0  && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(this, "PERMISSION GRANTED", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this, "PERMISSION DENIED", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

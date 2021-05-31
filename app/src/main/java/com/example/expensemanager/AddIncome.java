@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -115,6 +116,7 @@ public class AddIncome extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(getApplicationContext(),"Income data is saved sucessfully",Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(getApplicationContext(),Home.class));
                         }
                         else{
                             Toast.makeText(getApplicationContext(),"Income data is not saved",Toast.LENGTH_LONG).show();

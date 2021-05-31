@@ -9,19 +9,22 @@
     tools:context=".AboutUs">
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="5dp"
         android:layout_gravity="center"
-        android:src="@drawable/expmanager"
+        android:src="@drawable/ic_launcher"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Expense Manager"
-        android:textColor="@color/black"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        android:textColor="#A6031CFF"
         android:gravity="center"
-        android:textSize="20sp"/>
+
+        android:textSize="30sp"/>
 
     <TextView
         android:layout_marginTop="50dp"

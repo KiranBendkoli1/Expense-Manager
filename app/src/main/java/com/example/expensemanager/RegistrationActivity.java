@@ -35,6 +35,13 @@ public class RegistrationActivity extends AppCompatActivity {
         regBtn = findViewById(R.id.register);
         signIn = findViewById(R.id.signInHere);
 
+        signIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
+
         firebaseAuth = FirebaseAuth.getInstance();
 
         regBtn.setOnClickListener(new View.OnClickListener() {
@@ -63,12 +70,12 @@ public class RegistrationActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             finish();
-                            Toast.makeText(getApplicationContext(),"Registration Complete",Toast.LENGTH_SHORT);
+                            Toast.makeText(getApplicationContext(),"Registration Complete",Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(getApplicationContext(),Home.class);
                             startActivity(i);
 
                         }else{
-                            Toast.makeText(getApplicationContext(),"Registration Failed",Toast.LENGTH_SHORT);
+                            Toast.makeText(getApplicationContext(),"Registration Failed",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

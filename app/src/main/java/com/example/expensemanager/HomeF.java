@@ -52,6 +52,10 @@ public class HomeF extends Fragment {
         balanceHome = view.findViewById(R.id.balance_home);
         displayComment = view.findViewById(R.id.comment);
 
+        incomeHome.setText("000.00");
+        expenseHome.setText("000.00");
+        balanceHome.setText("000.00");
+
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull  DataSnapshot snapshot) {

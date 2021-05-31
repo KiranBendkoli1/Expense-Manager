@@ -42,7 +42,6 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
         profileImage = findViewById(R.id.profile_image);
         btnSave = findViewById(R.id.save_btn);
         nameOfUser = findViewById(R.id.name_of_user);
@@ -83,8 +82,6 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_LONG).show();
                         finish();
-
-
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
