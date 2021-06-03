@@ -8,25 +8,61 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="200dp"
 
         android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/logout"
-            android:layout_weight="1"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="Log out"/>
-        <Button
-            android:id="@+id/about_us"
-            android:layout_weight="1"
-            android:layout_marginTop="150dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15sp"
+                android:text="@string/e_mail_id_of_user"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:paddingRight="15dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/emailIdUser"
+                android:gravity="right"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_margin="5dp"
-            android:layout_height="wrap_content"
-            android:text="about us"
-            />
+            android:orientation="vertical"
+            android:layout_marginTop="100sp"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/logout"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Log out"/>
+            <Button
+                android:id="@+id/about_us"
+                android:layout_weight="1"
+                android:layout_marginTop="150dp"
+                android:layout_width="match_parent"
+                android:layout_margin="5dp"
+                android:layout_height="wrap_content"
+                android:text="about us"
+                />
+        </LinearLayout>
+
     </LinearLayout>
 
 </FrameLayout>

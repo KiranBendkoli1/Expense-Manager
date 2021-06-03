@@ -47,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if(ContextCompat.checkSelfPermission(MainActivity.this,
                 Manifest.permission.INTERNET)== PackageManager.PERMISSION_GRANTED){
-            Toast.makeText(MainActivity.this ,"You have already granted this permission", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this ,"You have already granted Internet permission", Toast.LENGTH_SHORT).show();
         }else{
-            requestStoragePermission();
+            requestInternetPermission();
         }
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         signupHere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent i = new Intent(getApplicationContext(), RegistrationActivity.class);
                 startActivity(i);
             }
@@ -91,13 +92,14 @@ public class MainActivity extends AppCompatActivity {
         forgetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent i = new Intent(getApplicationContext(), Password.class);
                 startActivity(i);
             }
         });
     }
 
-    private void requestStoragePermission() {
+    private void requestInternetPermission() {
         if(ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, Manifest.permission.INTERNET)){
             new AlertDialog.Builder(this).setTitle("Permission needed")
                     .setMessage("This permission is needed because of this and that ")

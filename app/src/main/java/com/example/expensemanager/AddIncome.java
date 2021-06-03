@@ -42,7 +42,6 @@ public class AddIncome extends AppCompatActivity {
     SimpleDateFormat dateFormat;
     String date;
     String email,identifier;
-    DataObjectIncome dataObjectIncome;
     @SuppressLint("SimpleDateFormat")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,12 +105,6 @@ public class AddIncome extends AppCompatActivity {
             public void onClick(View v) {
 
                 Float incomeAmount = Float.parseFloat(incomeFigure.getText().toString().trim());
-
-                dataObjectIncome = new DataObjectIncome();
-                dataObjectIncome.setType("Income");
-                dataObjectIncome.setIncomeCategory(category);
-                dataObjectIncome.setIncomeDescription(incomeDescription.getText().toString().trim());
-                dataObjectIncome.setIncomeFigure(incomeAmount);
 
                 String description = incomeDescription.getText().toString().trim();
                 String amount = String.valueOf(incomeAmount);

@@ -37,7 +37,6 @@ public class AddExpense extends AppCompatActivity {
     SimpleDateFormat dateFormat;
     String date,email;
     String identifier;
-    DataObjectExpense   dataObjectExpense;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
     Button saveExpense, clearExpense;
@@ -97,11 +96,6 @@ public class AddExpense extends AppCompatActivity {
             public void onClick(View v) {
 
                 Float expenseAmount = Float.parseFloat(expenseFigure.getText().toString().trim());
-
-                dataObjectExpense = new DataObjectExpense();
-                dataObjectExpense.setExpenseCategory(category);
-                dataObjectExpense.setExpenseDescription(expenseDescription.getText().toString().trim());
-                dataObjectExpense.setExpenseFigure(expenseAmount);
 
 
                 // using alternative method to save data without using class object

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/custom_backgrount"
     android:orientation="vertical"
     tools:context=".AddIncome">
 
@@ -13,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:paddingLeft="20dp"
-        android:text="Income: "
+        android:text="@string/income"
+        android:textColor="@color/black"
          />
 
     <EditText
@@ -23,8 +25,9 @@
         android:layout_marginTop="12dp"
         android:gravity="right"
         android:inputType="number"
-        android:textSize="25sp"
         android:paddingLeft="20sp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
          />
 
     <TextView
@@ -32,15 +35,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:paddingLeft="20dp"
-        android:text="Category: "
+        android:text="@string/category"
+        android:textColor="@color/black"
         />
     <Spinner
         android:id="@+id/incomeSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textAlignment="center"
         android:scrollbarSize="25sp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
         />
 
     <TextView
@@ -48,14 +53,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:paddingLeft="20dp"
-        android:text="Description: "
+        android:text="@string/description"
+        android:textColor="@color/black"
         />
     <EditText
         android:id="@+id/incomeDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
         android:paddingLeft="10sp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         />
 
     <TextView
@@ -64,6 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20sp"
         android:gravity="right"
+        android:textColor="@color/black"
         android:textSize="20sp"/>
 
 
@@ -78,7 +86,8 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:padding="10sp"
-            android:text="clear"
+
+            android:text="@string/clear"
             />
         <Button
             android:id="@+id/saveIncome"
@@ -87,7 +96,8 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:padding="10sp"
-            android:text="Save"
+            android:text="@string/save"
             />
+        
     </LinearLayout>
 </LinearLayout>

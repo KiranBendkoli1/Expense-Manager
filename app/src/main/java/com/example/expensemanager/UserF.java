@@ -18,12 +18,13 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.internal.api.FirebaseNoSignedInUserException;
 
 
 public class UserF extends Fragment {
 
     ImageView profileImage;
-    TextView nameOfUser;
+    TextView nameOfUser, emailIdUser;
     Button logout,aboutus;
     String username;
     FirebaseAuth auth;
@@ -37,6 +38,11 @@ public class UserF extends Fragment {
         View view = inflater.inflate(R.layout.fragment_user2, container, false);
         logout = view.findViewById(R.id.logout);
         aboutus = view.findViewById(R.id.about_us);
+
+        emailIdUser = view.findViewById(R.id.emailIdUser);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        emailIdUser.setText(user.getEmail());
         /*
         SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
 

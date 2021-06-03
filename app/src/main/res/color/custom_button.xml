@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gradientandroid="http://schemas.android.com/aapt">
+
+
+    <gradient android:startColor="#ffffff" android:endColor="#00ffff" android:type="linear"/>
+
+
+    <corner />
+
+</selector>

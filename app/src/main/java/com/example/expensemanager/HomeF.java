@@ -61,7 +61,6 @@ public class HomeF extends Fragment {
         incomeHome = view.findViewById(R.id.income_home);
         expenseHome = view.findViewById(R.id.expense_home);
         balanceHome = view.findViewById(R.id.balance_home);
-        displayComment = view.findViewById(R.id.comment);
 
         incomeHome.setText("000.00");
         expenseHome.setText("000.00");

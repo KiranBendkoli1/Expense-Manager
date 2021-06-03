@@ -8,6 +8,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enter_your_name_here">Enter your name here</string>
+    <string name="e_mail_id_of_user">E-mail id of user :</string>
+    <string name="expense_manager">Expense Manager</string>
+    <string name="expense">Expense:</string>
+    <string name="category">Category:</string>
+    <string name="description">Description:</string>
+    <string name="enter_your_e_mail_id">Enter your E-mail Id:</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="log_in">Log in</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>
+    <string name="income">Income:</string>
+    <string name="save">Save</string>
+    <string name="clear">clear</string>
 
     <string-array name="incomeSpinner">
         <item>Salary</item>
