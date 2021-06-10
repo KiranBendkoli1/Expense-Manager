@@ -10,7 +10,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_marginTop="20sp"
-            android:backgroundTint="@color/custom_button"
+            android:background="@drawable/custom_backgrount"
             android:layout_width="match_parent"
             app:cardCornerRadius="20sp"
             android:layout_height="95sp">
@@ -109,7 +109,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         android:orientation="horizontal"
         android:padding="10dp">
 

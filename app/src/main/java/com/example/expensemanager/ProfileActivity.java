@@ -146,26 +146,4 @@ public class ProfileActivity extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent, "Select Profile image"), CHOOSE_IMAGE);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

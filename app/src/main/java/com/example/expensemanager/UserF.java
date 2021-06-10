@@ -43,27 +43,11 @@ public class UserF extends Fragment {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         emailIdUser.setText(user.getEmail());
-        /*
-        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
-
-        String defaultValue = "";
-        username = nameOfUser.getText().toString();
-        // read
-        username = sharedPreferences.getString("name",defaultValue);
-
-        // write
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("name",username);
-        editor.apply();
-
-        nameOfUser.setText(username);
-        */
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 Toast.makeText(getContext(), "User Logged out", Toast.LENGTH_SHORT).show();
-
                 startActivity(new Intent(getContext(), MainActivity.class));
             }
         });
@@ -75,8 +59,4 @@ public class UserF extends Fragment {
         });
         return view;
     }
-
-
-
-
 }

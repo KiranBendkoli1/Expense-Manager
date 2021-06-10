@@ -114,6 +114,7 @@ public class AddExpense extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
+                            finish();
                             Toast.makeText(getApplicationContext(),"Expense data is saved sucessfully",Toast.LENGTH_LONG).show();
                             startActivity(new Intent(getApplicationContext(),Home.class));
                         }

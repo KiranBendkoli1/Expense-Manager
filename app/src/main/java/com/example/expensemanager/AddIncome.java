@@ -123,6 +123,7 @@ public class AddIncome extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
+                            finish();
                             Toast.makeText(getApplicationContext(),"Income data is saved sucessfully",Toast.LENGTH_LONG).show();
                             startActivity(new Intent(getApplicationContext(),Home.class));
                         }

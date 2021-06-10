@@ -109,9 +109,6 @@ public class HomeF extends Fragment {
             }
         });
 
-
-
-
         return view;
     }
 }
